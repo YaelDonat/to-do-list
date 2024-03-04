@@ -4,15 +4,29 @@
     </div>
     <div *ngIf="todo" class="mt-2 grid grid-cols-3 gap-2 p-2 place-items-center">
         <div>
-            <p class="font-bold text-black">
-                {{todo.title}}
+            <p class="font-bold text-black relative">
+                {{ todo.title }}
+                <span *ngIf="todo.state === 'Finished'"
+                    class="absolute bg-green-500/35 h-[50%] bottom-0 left-0 right-0 animate-line-through"></span>
             </p>
         </div>
-        <div class="text-black">
-            {{todo.state}}
+        <div>
+            <div [title]="todo.state">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px"
+                    viewBox="0 0 32.25 32.25" style="enable-background:new 0 0 32.25 32.25;" xml:space="preserve">
+                    <g>
+                        <path d="M16.125,0C7.233,0,0,7.232,0,16.125C0,25.018,7.233,32.25,16.125,32.25c8.893,0,16.125-7.232,16.125-16.125
+            C32.25,7.232,25.016,0,16.125,0z M16.125,28.25C9.439,28.25,4,22.811,4,16.125C4,9.439,9.439,4,16.125,4
+            C22.811,4,28.25,9.439,28.25,16.125C28.25,22.811,22.811,28.25,16.125,28.25z M21.25,16.125c0,2.83-2.295,5.125-5.125,5.125
+            S11,18.955,11,16.125S13.295,11,16.125,11S21.25,13.295,21.25,16.125z"
+                            [attr.fill]="getFillColor(todo.state)" />
+                    </g>
+                </svg>
+            </div>
         </div>
-        <div class="relative">
-            <button (click)="togglePopover()" >
+        <div class="relative flex flex-row">
+            <button (click)="togglePopover()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="
                 w-6 h-6 cursor-pointer
@@ -21,13 +35,11 @@
                         d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
                 </svg>
             </button>
-            <div *ngIf="states" id="states"
-                [ngClass]="{hidden: !isShowed}"
+            <div *ngIf="states" id="states" [ngClass]="{hidden: !isShowed}"
                 class="rounded-lg p-5 bg-[#fafafa] border-gray-100 shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)] min-w-max absolute ">
-                <div class="flex flex-row">
-                    <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white" 
-                    (click)="updateState(state.value)"
-                    [ngClass]="{
+                <div class="flex flex-col">
+                    <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white"
+                        (click)="updateState(state.value)" [ngClass]="{
                                 'bg-red-600 active:bg-red-700': state.value === states.NOT_STARTED,
                                 'bg-orange-600 active:bg-orange-700': state.value === states.IN_PROGRESS,
                                 'bg-green-600 active:bg-green-700': state.value === states.FINISHED
@@ -35,7 +47,13 @@
                         {{ state.value }}
                     </button>
                 </div>
-
+            </div>
+            <div class="text-red-600" (click)="deleteTask()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd"
+                        d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z"
+                        clip-rule="evenodd" />
+                </svg>
             </div>
         </div>
     </div>

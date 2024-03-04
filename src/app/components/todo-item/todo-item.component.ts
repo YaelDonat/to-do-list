@@ -24,6 +24,19 @@ export class TodoItemComponent implements OnInit {
     this.isShowed = !this.isShowed;
   }
 
+  getFillColor(state: string): string {
+    switch(state) {
+      case 'Not started':
+        return '#dc2626';
+      case 'In progress':
+        return '#ea580c';
+      case 'Finished':
+        return '#16a34a';
+      default:
+        return 'black';
+    }
+  }
+
   updateState(newState: State): void {
     const updatedTodo = {
       id: this.todo!.id,
@@ -32,6 +45,14 @@ export class TodoItemComponent implements OnInit {
     };
   
     this.store.dispatch(todoActions.updateTodoAction(updatedTodo));
+  }
+
+  deleteTask(): void {
+    this.store.dispatch(todoActions.deleteTodoAction({
+      id: this.todo!.id,
+      state: this.todo!.state,
+      title: this.todo!.title,
+    }))
   }
   
 

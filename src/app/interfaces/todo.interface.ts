@@ -6,7 +6,7 @@ export interface TodoModel {
 
 export enum State {
     NOT_STARTED = "Not started",
-    IN_PROGRESS = " In  progress",
+    IN_PROGRESS = "In progress",
     FINISHED = "Finished"
 }
 
