@@ -1,6 +1,6 @@
-<div class="grid grid-cols-3 gap-2 place-items-center ">
+<div class="grid grid-cols-3 gap-2 place-items-center">
     <div>
-        task
+        Task
     </div>
     <div>
         Status
@@ -10,11 +10,11 @@
     </div>
 </div>
 <ul class="list-reset flex flex-col justify-center items-center rounded-lg  text-lg">
-    <li *ngFor="let item of [{text:'coucou'},{text:'salut'},{text:'bonjour'}]"
-        class="
-                pt-2  block mt-2 no-underline transition-all rounded-lg w-full
+    <li *ngFor="let todo of todos; let i = index"
+        class=" min-w-full
+                pt-2  block mt-2 no-underline transition-all rounded-lg 
                 border-b-2 border-gray-300 
                 ">
-                <app-todo-item></app-todo-item>
+                <app-todo-item [todo]="todo"></app-todo-item>
     </li>
 </ul>
