@@ -3,8 +3,8 @@
         Nothing to do ! :)
     </div>
     <div *ngIf="todo" class="mt-2 grid grid-cols-3 gap-2 p-2 place-items-center">
-        <div>
-            <p class="font-bold text-black relative">
+        <div class="flex">
+            <p class="font-bold text-black relative text-ellipsis overflow-hidden ... text-wrap">
                 {{ todo.title }}
                 <span *ngIf="todo.state === 'Finished'"
                     class="absolute bg-green-500/35 h-[50%] bottom-0 left-0 right-0 animate-line-through"></span>

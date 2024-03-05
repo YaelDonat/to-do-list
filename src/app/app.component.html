@@ -1,12 +1,13 @@
 <div id="todo-app" class="
-                          flex flex-col items-center justify-end 
                           rounded-md
                           p-3
-                          min-w-[50%] max-w-[80%] max-h-full 
+                          min-w-[50%] max-w-[80%] min-h-[50%] max-h-[80%] 
                           bg-[#fafafa] shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)]
+                           overflow-auto
                           ">
-  <h1 id="todo-title" class="mb-auto mt-0 text-[2em]">Today's To-do List</h1>
-  <h4>{{today}}</h4>
-  <app-todo-input></app-todo-input>
-  <app-todo-list class="min-w-full"></app-todo-list>
-  <div id="todo-filters">filtres</div>
+    <h1 id="todo-title" class="mb-auto mt-0 text-[2em] text-center">Today's To-do List</h1>
+    <h4 class="text-center">{{today}}</h4>
+    <app-todo-input></app-todo-input>
+    <app-todo-list class="min-w-full"></app-todo-list>
+    <div id="todo-filters">filtres</div>
+</div>

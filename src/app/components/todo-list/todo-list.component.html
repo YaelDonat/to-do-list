@@ -1,20 +1,19 @@
-<div class="grid grid-cols-3 gap-2 place-items-center">
-    <div>
-        Task
+    <div class="grid grid-cols-3 gap-2 place-items-center">
+        <div>
+            Task
+        </div>
+        <div>
+            Status
+        </div>
+        <div>
+            Actions
+        </div>
     </div>
-    <div>
-        Status
-    </div>
-    <div>
-        Actions
-    </div>
-</div>
-<ul class="list-reset flex flex-col justify-center items-center rounded-lg  text-lg">
-    <li *ngFor="let todo of todos; let i = index"
-        class=" min-w-full
-                pt-2  block mt-2 no-underline transition-all rounded-lg 
-                border-b-2 border-gray-300 
-                ">
-                <app-todo-item [todo]="todo"></app-todo-item>
-    </li>
-</ul>
+    <ul class="list-reset flex flex-col justify-center items-center rounded-lg h-max text-lg">
+        <li *ngFor="let todo of todos; let i = index" class=" min-w-full
+                    pt-2  block mt-2 no-underline transition-all rounded-lg 
+                    border-b-2 border-gray-300 
+                    ">
+            <app-todo-item [todo]="todo"></app-todo-item>
+        </li>
+    </ul>
