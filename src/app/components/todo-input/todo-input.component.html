@@ -1,11 +1,18 @@
-<form class="flex my-6">
-    <input name="task" type="text" autocomplete="text" placeholder="Ex : Take the dog out" required="" value="" 
-    class="
-            px-4 py-2 rounded-l-lg bg-slate-200 focus:bg-slate-300 focus:text-slate-700 text-slate-800
-            placeholder-slate-500 focus:ring-0 focus:outline-none"
-    >
-    <button type="submit"
-            class="px-4 py-2 text-sm text-white font-bold uppercase bg-[#8c6fb7] rounded-r-lg active:bg-[#6b548e]">
-        New task
-    </button>
+<form class="flex flex-col my-6" [formGroup]="todoForm" (ngSubmit)="addTask()" #formGroupRef="ngForm">
+    <div>
+        <input formControlName="title" type="text" autocomplete="text" placeholder="Ex : Take the dog out"
+            appLimitLength class="
+                px-4 py-2 rounded-l-lg bg-slate-200 focus:bg-slate-300 focus:text-slate-700 text-slate-800
+                placeholder-slate-500 focus:ring-0 focus:outline-none"
+            [ngClass]="{ 'border-red-500 rounded-l-lg': submitted && f['title'].errors }">
+        <button
+            class="px-4 py-3 text-sm text-white font-bold uppercase bg-[#8c6fb7] rounded-r-lg active:bg-[#6b548e] disabled:opacity-50">
+            New task
+        </button>
+    </div>
+    <!-- DISPLAY ERROR -->
+    <div *ngIf="submitted && f['title'].errors">
+        <div *ngIf="f['title'].errors['required']" class="text-red-600 text-center">One character minimum required.
+        </div>
+    </div>
 </form>

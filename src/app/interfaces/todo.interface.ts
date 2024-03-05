@@ -1,5 +1,5 @@
 export interface TodoModel {
-    id: number,
+    id: string,
     title: string,
     state: State
 }
@@ -11,7 +11,7 @@ export enum State {
 }
 
 export let initialTodos: TodoModel[] = [{
-    id: 0,
+    id: '0',
     title: "Default task",
     state: State.NOT_STARTED
 }]

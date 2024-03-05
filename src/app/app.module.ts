@@ -7,19 +7,23 @@ import { TodoInputComponent } from './components/todo-input/todo-input.component
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { todoReducer, metaReducers } from './store/todo-reducer';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LimitLengthDirective } from './directives/limit-length.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoInputComponent,
     TodoItemComponent,
-    TodoListComponent
+    TodoListComponent,
+    LimitLengthDirective,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({
       todos: todoReducer
-    }, {metaReducers})
+    }, { metaReducers })
   ],
   providers: [],
   bootstrap: [AppComponent]
