@@ -38,6 +38,7 @@ export const todoReducer = createReducer(
 
 );
 
+// SELECTOR
 
 export const todoSelector = createSelector(
     createFeatureSelector<TodoState>('todos'),
@@ -55,4 +56,24 @@ export const selectTodos = createSelector(
 export const selectFilteredTodos = createSelector(
     selectTodoState,
     (state: TodoState) => state.filteredTodos
+);
+
+export const selectTotalTodos = createSelector(
+    selectTodos,
+    (todos: TodoModel[]) => todos.length
+);
+
+export const selectTotalFinishedTodos = createSelector(
+    selectTodos,
+    (todos: TodoModel[]) => todos.filter(todo => todo.state === 'Finished').length
+);
+
+export const selectTotalInProgressTodos = createSelector(
+    selectTodos,
+    (todos: TodoModel[]) => todos.filter(todo => todo.state === 'In progress').length
+);
+
+export const selectTotalNotStartedTodos = createSelector(
+    selectTodos,
+    (todos: TodoModel[]) => todos.filter(todo => todo.state === 'Not started').length
 );
