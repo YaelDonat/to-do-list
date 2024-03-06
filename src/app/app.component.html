@@ -4,15 +4,15 @@
                             bg-[#fafafa] shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)]
                             relative
                             ">
-    <h1 class="text-[2em] text-center h-[5vh]">Today's To-do List</h1>
+    <h1 class="text-[1.75em] text-center h-[5vh]">Today's To-do List</h1>
     <h4 class="text-center h-[3vh]">{{today}}</h4>
-    <div class="flex flex-row h-[2vh] justify-center items-center">
-        <span class="bg-violet-100 text-violet-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-violet-900 dark:text-violet-300"> {{totalTodos$ | async}} - Total</span>
-        <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"> {{totalNotStartedTodos$ | async}} - Not started</span>
-        <span class="bg-orange-100 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-orange-900 dark:text-orange-300">{{totalInProgressTodos$ | async}} - In progress</span>
-        <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{totalFinishedTodos$ | async}} - Finished</span>
+    <div class="flex flex-row flex-wrap gap-1 h-[5vh] justify-center items-center">
+        <span class="flex items-center justify-center w-1/5 h-full bg-violet-100 text-violet-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-violet-900 dark:text-violet-300"> {{totalTodos$ | async}} - Total</span>
+        <span class="flex items-center justify-center w-1/5 h-full bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"> {{totalNotStartedTodos$ | async}} - Not started</span>
+        <span class="flex items-center justify-center w-1/5 h-full bg-orange-100 text-orange-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-orange-900 dark:text-orange-300">{{totalInProgressTodos$ | async}} - In progress</span>
+        <span class="flex items-center justify-center w-1/5 h-full bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{totalFinishedTodos$ | async}} - Finished</span>
     </div>
     <app-todo-input class="h-[10vh]"></app-todo-input>
     <app-todo-list class="min-w-full min-h-[45vh] h-[45vh] "></app-todo-list>
-    <app-todo-filter class="h-[10vh] relative flex items-center w-full"></app-todo-filter>
+    <app-todo-filter class="lg:h-[10vh] h-[15vh] relative flex items-center w-full"></app-todo-filter>
 </div>

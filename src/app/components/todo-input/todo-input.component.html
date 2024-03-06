@@ -1,12 +1,12 @@
-<form class=" my-6 flex flex-col items-center " [formGroup]="todoForm" (ngSubmit)="addTask()" #formGroupRef="ngForm" appLimitLength>
+<form class=" my-6 flex flex-col items-center " [formGroup]="todoForm" (ngSubmit)="addTask()" #formGroupRef="ngForm"
+    appLimitLength>
     <div class="flex flex-row">
         <input formControlName="title" type="text" autocomplete="text" placeholder="Ex : Take the dog out"
-            appLimitLength class="
+            appLimitLength class="w-5/6
                 px-4 py-2 rounded-l-lg bg-slate-200 focus:bg-slate-300 focus:text-slate-700 text-slate-800
                 placeholder-slate-500 focus:ring-0 focus:outline-none "
             [ngClass]="{ 'border-red-500 border-2 border-r-0 ': submitted && f['title'].errors }">
-        <button
-            [ngClass]="{ 'border-red-500 border-2 border-l-0 ': submitted && f['title'].errors }"
+        <button [ngClass]="{ 'border-red-500 border-2 border-l-0 ': submitted && f['title'].errors }"
             class="px-4 py-2 text-sm text-white font-bold uppercase bg-[#8c6fb7] rounded-r-lg active:bg-[#6b548e]">
             New task
         </button>
