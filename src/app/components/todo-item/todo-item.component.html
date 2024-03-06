@@ -3,15 +3,15 @@
         Nothing to do ! :)
     </div>
     <div *ngIf="todo" class="mt-2 grid grid-cols-3 gap-2 p-2 place-items-center">
-        <div class="flex">
-            <p class="font-bold text-black relative text-ellipsis overflow-hidden ... text-wrap">
+        <div class="max-w-full">
+            <p [title]="todo.title" class="font-bold text-black relative text-ellipsis text-nowrap overflow-hidden ...">
                 {{ todo.title }}
                 <span *ngIf="todo.state === 'Finished'"
                     class="absolute bg-green-500/35 h-[50%] bottom-0 left-0 right-0 animate-line-through"></span>
             </p>
         </div>
-        <div>
-            <div [title]="todo.state">
+        <div class="relative">
+            <div [title]="todo.state" (click)="togglePopover()" class="cursor-pointer">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px"
                     viewBox="0 0 32.25 32.25" style="enable-background:new 0 0 32.25 32.25;" xml:space="preserve">
@@ -24,19 +24,8 @@
                     </g>
                 </svg>
             </div>
-        </div>
-        <div class="relative flex flex-row">
-            <button (click)="togglePopover()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="
-                w-6 h-6 cursor-pointer
-                ">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
-                </svg>
-            </button>
             <div *ngIf="states" id="states" [ngClass]="{hidden: !isShowed}"
-                class="rounded-lg p-5 bg-[#fafafa] border-gray-100 shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)] min-w-max absolute ">
+                class="rounded-lg p-5 bg-[#fafafa] border-gray-100 shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)] min-w-max absolute z-[1] ">
                 <div class="flex flex-col">
                     <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white"
                         (click)="updateState(state.value)" [ngClass]="{
@@ -48,6 +37,8 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div>
             <div class="text-red-600 cursor-pointer" (click)="deleteTask()">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                     <path fill-rule="evenodd"

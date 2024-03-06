@@ -33,44 +33,44 @@ export let initialTodos: TodoModel[] = [
     },
     {
         id: '4',
-        title: "Default task",
-        state: State.NOT_STARTED
+        title: "Default task Default task Default task Default task Default task Default task Default task Default task",
+        state: State.FINISHED
     },
-    {
-        id: '4',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '5',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '6',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '7',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '8',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '9',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
-    {
-        id: '10',
-        title: "Default task",
-        state: State.NOT_STARTED
-    },
+    // {
+    //     id: '4',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '5',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '6',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '7',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '8',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '9',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
+    // {
+    //     id: '10',
+    //     title: "Default task",
+    //     state: State.NOT_STARTED
+    // },
 
 
 ]
