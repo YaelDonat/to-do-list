@@ -38,7 +38,7 @@
                     </button>
                 </span>
                 <!-- States Btn -->
-                <div class="flex flex-row">
+                <div class="flex lg:flex-row flex-col">
                     <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white uppercase"
                         (click)="updateState(state.value)" [ngClass]="{
                                 'bg-red-600 active:bg-red-700': state.value === states.NOT_STARTED,
