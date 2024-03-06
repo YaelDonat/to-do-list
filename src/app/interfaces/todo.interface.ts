@@ -7,10 +7,10 @@ export interface TodoModel {
 export enum State {
     NOT_STARTED = "Not started",
     IN_PROGRESS = "In progress",
-    FINISHED = "Finished"
+    FINISHED = "Finished",
 }
 
-export let initialTodos: TodoModel[] = [
+export const todosExample: TodoModel[] = [
     {
         id: '0',
         title: "Default task",
@@ -36,16 +36,11 @@ export let initialTodos: TodoModel[] = [
         title: "Default task Default task Default task Default task Default task Default task Default task Default task",
         state: State.FINISHED
     },
-    // {
-    //     id: '4',
-    //     title: "Default task",
-    //     state: State.NOT_STARTED
-    // },
-    // {
-    //     id: '5',
-    //     title: "Default task",
-    //     state: State.NOT_STARTED
-    // },
+    {
+        id: '5',
+        title: "Default task",
+        state: State.NOT_STARTED
+    },
     // {
     //     id: '6',
     //     title: "Default task",
@@ -74,3 +69,13 @@ export let initialTodos: TodoModel[] = [
 
 
 ]
+export interface TodoState {
+    todos: TodoModel[];
+    filteredTodos: TodoModel[];
+}
+
+
+export const initialState: TodoState = {
+    todos: [],
+    filteredTodos: []
+};
