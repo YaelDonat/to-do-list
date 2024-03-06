@@ -24,6 +24,10 @@ export class TodoItemComponent implements OnInit {
     this.isShowed = !this.isShowed;
   }
 
+  closePopover() : void {
+    this.isShowed = false;
+  }
+
   getFillColor(state: string): string {
     switch(state) {
       case 'Not started':

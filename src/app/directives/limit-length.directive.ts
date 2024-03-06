@@ -19,10 +19,10 @@ export class LimitLengthDirective {
     }
 
     @HostListener('focus') onFocus() {
-      const value: string = this.el.nativeElement.value;
-      if (value.length > this.maxLength) {
-        this.renderer.setProperty(this.el.nativeElement, 'value', this.initialValue);
-      }
+        const value: string = this.el.nativeElement.value;
+        if (value.length > this.maxLength) {
+            this.renderer.setProperty(this.el.nativeElement, 'value', this.initialValue);
+        }
     }
 
     @HostListener('input') onInput() {
@@ -33,4 +33,4 @@ export class LimitLengthDirective {
         this.submitted = true;
         this.initialValue = '';
     }
-  }
+}

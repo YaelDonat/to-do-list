@@ -24,10 +24,22 @@
                     </g>
                 </svg>
             </div>
+            <!-- Popover -->
             <div *ngIf="states" id="states" [ngClass]="{hidden: !isShowed}"
-                class="rounded-lg p-5 bg-[#fafafa] border-gray-100 shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)] min-w-max absolute z-[1] ">
-                <div class="flex flex-col">
-                    <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white"
+                class="rounded-lg p-5 bg-[#f5f5f5] border-gray-100 shadow-lg shadow-[0px 0px 5px rgba(25, 25, 25, 0.25)] min-w-max absolute z-[10] ">
+                <!-- Close Icon -->
+                <span class="flex justify-end items-center mb-2">
+                    <button (click)="closePopover()" class="text-slate-600 hover:text-slate-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </span>
+                <!-- States Btn -->
+                <div class="flex flex-row">
+                    <button *ngFor="let state of states | keyvalue" class="p-2 m-2 rounded-lg text-white uppercase"
                         (click)="updateState(state.value)" [ngClass]="{
                                 'bg-red-600 active:bg-red-700': state.value === states.NOT_STARTED,
                                 'bg-orange-600 active:bg-orange-700': state.value === states.IN_PROGRESS,

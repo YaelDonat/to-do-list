@@ -1,0 +1,6 @@
+<div class="flex lg:flex-row flex-col justify-evenly gap-1 w-full text-slate-100 ">
+    <button class="rounded-lg bg-[#8c6fb7] active:bg-[#6b548e] p-2 min-w-[10%] uppercase font-bold" (click)="filterByState('All')">All</button>
+    <button class="rounded-lg bg-red-500 active:bg-red-600 p-2 min-w-[10%] uppercase font-bold" (click)="filterByState('Not started')">Not started</button>
+    <button class="rounded-lg bg-orange-500 active:bg-orange-600 p-2 min-w-[10%] uppercase font-bold" (click)="filterByState('In progress')">In progress</button>
+    <button class="rounded-lg bg-green-500 active:bg-green-600 p-2 min-w-[10%] uppercase font-bold" (click)="filterByState('Finished')">Finished</button>
+</div>
